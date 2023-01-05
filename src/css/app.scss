@@ -1,0 +1,9 @@
+// app global css in SCSS form
+body {
+  font-family: 'capriola';
+  background-color: #220b57;
+  color: white;
+  .q-field__native {
+    color: white;
+  }
+}

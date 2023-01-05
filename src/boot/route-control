@@ -1,0 +1,18 @@
+import { boot } from 'quasar/wrappers';
+import { LocalStorage } from 'quasar';
+
+export default boot(({ router }) => {
+  router.beforeEach((to, from, next) => {
+    let loggedIn = LocalStorage.getItem('loggedIn');
+    if (
+      !loggedIn &&
+      (to.path == '/' || to.path == '/signUp' || to.path == '/logIn')
+    ) {
+      next();
+    } else if (!loggedIn) {
+      next('/');
+    } else {
+      next();
+    }
+  });
+});
